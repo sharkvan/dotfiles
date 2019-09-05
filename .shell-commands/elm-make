@@ -1,0 +1,1 @@
+docker run -it --tty --rm -v "$(pwd):/code" -w "/code" -e "HOME=/tmp" -u $UID:$GID codesimple/elm:0.17 make $*
