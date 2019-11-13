@@ -1,7 +1,7 @@
 #! /bin/bash
 
-apt-get update && \
-    apt-get install -y \
+apt-get update
+apt-get install -y \
                     vim \
                     git \
                     tree \
@@ -14,14 +14,17 @@ apt-get update && \
                     ncurses-dev \
                     make \
                     automake \
-                    pkg-config && \
-    apt-get clean
+                    pkg-config
+apt-get clean
 
 git clone --depth 1 https://github.com/tmux/tmux.git && \
-    cd tmux && \
+    pushd tmux && \
     ./autogen.sh && \
     ./configure && \
     make && \
-    make install
+    make install && \
+    popd
 
-git clone https://github.com/VundleVim/Vundle.vim.git .vim/bundle/Vundle.vim
+mkdir -p .vim/bundle/
+
+git clone --depth 1 https://github.com/VundleVim/Vundle.vim.git .vim/bundle/Vundle.vim
