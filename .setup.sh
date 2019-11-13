@@ -25,5 +25,3 @@ git clone --depth 1 https://github.com/tmux/tmux.git && \
     make install
 
 git clone https://github.com/VundleVim/Vundle.vim.git .vim/bundle/Vundle.vim
-
-vim -c 'PluginInstall' -c 'qa!'
