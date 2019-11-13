@@ -31,4 +31,4 @@ mkdir -p .vim/bundle/
 git clone --depth 1 https://github.com/morhetz/gruvbox.git .vim/bundle/gruvbox
 git clone --depth 1 https://github.com/VundleVim/Vundle.vim.git .vim/bundle/Vundle.vim
 
-vim -c VundleUpdate -c quital
+vim -T dumb  -n -i NONE -S <(echo -e "silent! PluginInstall") -S <(echo -e "qa")
