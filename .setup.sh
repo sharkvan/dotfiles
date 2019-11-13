@@ -17,13 +17,15 @@ apt-get install -y \
                     pkg-config
 apt-get clean
 
-git clone --depth 1 https://github.com/tmux/tmux.git && \
-    pushd tmux && \
-    ./autogen.sh && \
-    ./configure && \
-    make && \
-    make install && \
-    popd
+pushd /opt
+
+curl -L https://github.com/tmux/tmux/releases/download/2.9a/tmux-2.9a.tar.gz | tar xz && \
+	cd tmux-2.9a && \	
+	./configure --enable-static && \
+	make && \
+	make install
+
+popd
 
 mkdir -p .vim/bundle/
 
