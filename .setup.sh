@@ -2,7 +2,7 @@
 
 apt-get update
 apt-get install -y \
-                    vim \
+                    vim-gtk \
                     git \
                     tree \
                     curl \
