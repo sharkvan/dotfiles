@@ -7,12 +7,15 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'elm-tooling/elm-vim'
+Plugin 'andys8/vim-elm-syntax'
 Plugin 'w0rp/ale'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-sensible'
 Plugin 'scrooloose/nerdtree'
 Plugin 'morhetz/gruvbox'
 Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'rafalbromirski/vim-airlineish'
 Plugin 'scrooloose/syntastic'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'SirVer/ultisnips'
@@ -20,12 +23,15 @@ Plugin 'honza/vim-snippets'
 Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'vim-scripts/vim-auto-save'
 Plugin 'majutsushi/tagbar'
-Plugin 'andys8/vim-elm-syntax'
 Plugin 'janko/vim-test'
 
 call vundle#end()
 
 filetype plugin indent on
+
+set t_Co=256
+set laststatus=2
+set rtp+=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim/
 
 set background=dark
 colorscheme gruvbox
@@ -45,8 +51,8 @@ let g:NERDTreeMinimalUI = 1
 autocmd VimEnter * if (0 == argc()) | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-let g:airline_left_sep= '░'
-let g:airline_right_sep= '░'
+let g:airline_powerline_fonts = 1
+let g:airline_theme = 'airlineish'
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
