@@ -6,7 +6,7 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
-Plugin 'elmcast/elm-vim'
+Plugin 'elm-tooling/elm-vim'
 Plugin 'w0rp/ale'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-sensible'
@@ -17,6 +17,11 @@ Plugin 'scrooloose/syntastic'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
+Plugin 'ludovicchabant/vim-gutentags'
+Plugin 'vim-scripts/vim-auto-save'
+Plugin 'majutsushi/tagbar'
+Plugin 'andys8/vim-elm-syntax'
+Plugin 'janko/vim-test'
 
 call vundle#end()
 
@@ -50,16 +55,32 @@ let g:airline#extensions#syntastic#enabled = 0
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 
-
+" Elm setup
 let g:elm_detailed_complete = 1
 let g:elm_format_autosave = 1
 let g:elm_syntastic_show_warnings = 1
+let g:polyglot_disabled = ['elm']
+let g:tagbar_type_elm = {
+      \ 'kinds' : [
+      \ 'f:function:0:0',
+      \ 'm:modules:0:0',
+      \ 'i:imports:1:0',
+      \ 't:types:1:0',
+      \ 'a:type aliases:0:0',
+      \ 'c:type constructors:0:0',
+      \ 'p:ports:0:0',
+      \ 's:functions:0:0',
+      \ ]
+      \}
+let g:ale_linters = { 'elm': ['elm_ls'] }
 
 autocmd BufNewFile,BufRead *.md set spell | set lbr | set nonu
 let g:markdown_fenced_languages = ['html', 'json', 'css', 'javascript', 'elm', 'vim']
 
+"Vim Autosave
+let g:auto_save = 1
+let g:auto_save_in_insert_mode = 0
+
 " add yaml stuffs
-au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml foldmethod=indent
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
-autocmd FileType java set tags=.tags
