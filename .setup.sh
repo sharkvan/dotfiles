@@ -14,7 +14,8 @@ apt-get install -y \
                     ncurses-dev \
                     make \
                     automake \
-                    pkg-config
+                    pkg-config \
+                    fonts-powerline
 apt-get clean
 
 pushd /opt
