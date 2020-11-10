@@ -24,6 +24,7 @@ Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'vim-scripts/vim-auto-save'
 Plugin 'majutsushi/tagbar'
 Plugin 'janko/vim-test'
+Plugin 'kburdett/vim-nuuid'
 
 call vundle#end()
 
@@ -90,3 +91,6 @@ let g:auto_save_in_insert_mode = 0
 " add yaml stuffs
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
+" NUUID Plugin
+let g:nuuid_no_mappings = 1
+vmap <Leader>u <Plug>Nuuid
